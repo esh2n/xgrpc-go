@@ -4,7 +4,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/esh2n/xgrpc/chat"
+	"github.com/esh2n/xgrpc-go/chat"
 	"google.golang.org/grpc"
 )
 
@@ -14,7 +14,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	s := chat.Server()
+	s := chat.Server{}
 	grpcServer := grpc.NewServer()
 	chat.RegisterChatServiceServer(grpcServer, &s)
 
